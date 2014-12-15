@@ -25,7 +25,7 @@ class Windows:
 
 
     def execute_report(self):
-        self.read_csv(filename)
+        read.csv.read_csv(filename)
 
 filename = filedialog.askopenfilename()
 root = Tk()
