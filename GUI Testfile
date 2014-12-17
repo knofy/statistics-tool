@@ -21,11 +21,17 @@ class Windows:
         root.config(menu=menu)
         submenu = Menu(menu)
         menu.add_cascade(label="Spaltenüberschriften", menu=submenu)
-        submenu.add_command(label="Spalte1",command=None) #"""Bei Label kommt die erste Spaltenüberschrift hinein, Hier kommt dann die Funktion hinein, die auf die jeweilige Spalte die angeklickt ist verlinkt Hier soll mit einer for Schleife die Subauswahlfelder für die Spalten generiert werden """
+        
+        # reads header and content out of chosen file
+        header, content = read_csv.read_csv(filename)
+        for i in header:
+            submenu.add_command(label=i,command=None) #"""Bei Label kommt die erste Spaltenüberschrift hinein, Hier kommt dann die Funktion hinein, die auf die jeweilige Spalte die angeklickt ist verlinkt Hier soll mit einer for Schleife die Subauswahlfelder für die Spalten generiert werden """
 
 
     def execute_report(self):
-        read.csv.read_csv(filename)
+        pass
+        #read_csv.read_csv(filename)
+
 
 filename = filedialog.askopenfilename()
 root = Tk()
