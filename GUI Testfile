@@ -3,6 +3,7 @@
 from tkinter import *
 from tkinter import filedialog
 import read_csv
+import statistics
 
 
 class Windows:
@@ -30,7 +31,8 @@ class Windows:
 
     def execute_report(self):
         pass
-        #read_csv.read_csv(filename)
+        # insert statistics-functions here
+        # statistics.calc_mean(filename, key)
 
 
 filename = filedialog.askopenfilename()
