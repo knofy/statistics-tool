@@ -2,17 +2,39 @@
 
 from tkinter import *
 from tkinter import ttk
+from tkinter import filedialog
 import statistics
 import read_csv
 
 def open_file(*args):
-    pass
+    tmp_filename = filedialog.askopenfilename()
+    filename.set(tmp_filename)
+    tmp_header, tmp_content = read_csv.read_csv(tmp_filename)
+    #header.set(tmp_header)
+    #column['values'] = tmp_header
 
 def calculate(*args):
-    pass
+    # as long as combobox not working use Open-column for all calculations
+    # just for testing
+    key = "Open"
+    
+    if operation_choice.get() == "mean":
+        result.set(statistics.calc_mean(filename.get(), key))
+    elif operation_choice.get() == "stddev":
+        result.set(statistics.calc_stddev(filename.get(), key))
+    elif operation_choice.get() == "sum":
+        result.set(statistics.calc_sum(filename.get(), key))
+    elif operation_choice.get() == "variance":
+        result.set(statistics.calc_variance(filename.get(), key))
+    elif operation_choice.get() == "count":
+        result.set(statistics.count(filename.get()))
+    elif operation_choice.get() == "max":
+        result.set(statistics.find_max(filename.get(), key))
+    elif operation_choice.get() == "min":
+        result.set(statistics.find_min(filename.get(), key))
 
 def exit_program(*args):
-    pass    
+    root.quit()    
     
 root = Tk()
 root.title("Statistics Tool")
@@ -28,8 +50,9 @@ checkboxframe.grid(column=2, row=3, sticky=(N, W, E, S))
 
 filename = StringVar()
 operation_choice = StringVar()
-column_choice = StringVar()
-result= StringVar()
+result = StringVar()
+header = StringVar()
+#content = StringVar()
 
 # Labels
 ttk.Label(mainframe, text="Select File").grid(column=1, row=1, sticky=W)
@@ -41,12 +64,12 @@ ttk.Label(mainframe, text="Result").grid(column=1, row=4, sticky=W)
 ttk.Entry(mainframe, textvariable=result, state="disabled").grid(column=2, row=4, sticky=(W, E))
 
 # File input field + button
-file_entry = ttk.Entry(mainframe, textvariable=filename)
+file_entry = ttk.Entry(mainframe, textvariable=filename, state="disabled")
 file_entry.grid(column=2, row=1, sticky=(W, E))
 ttk.Button(mainframe, text="Open", command=open_file).grid(column=3, row=1, sticky=W)
 
 # Choose Column
-column = ttk.Combobox(mainframe, textvariable=column_choice).grid(column=2, row=2, sticky=(W, E))
+column = ttk.Combobox(mainframe, textvariable=header).grid(column=2, row=2, sticky=(W, E))
 
 # Choose operation
 calc_mean = ttk.Radiobutton(checkboxframe, text="Mean", variable=operation_choice, value="mean")
