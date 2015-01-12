@@ -10,13 +10,10 @@ def open_file(*args):
     tmp_filename = filedialog.askopenfilename()
     filename.set(tmp_filename)
     tmp_header, tmp_content = read_csv.read_csv(tmp_filename)
-    #header.set(tmp_header)
-    #column['values'] = tmp_header
+    column = ttk.Combobox(mainframe, textvariable=header, values=tmp_header).grid(column=2, row=2, sticky=(W, E))
 
 def calculate(*args):
-    # as long as combobox not working use Open-column for all calculations
-    # just for testing
-    key = "Open"
+    key = header.get()
     
     if operation_choice.get() == "mean":
         result.set(statistics.calc_mean(filename.get(), key))
@@ -34,7 +31,7 @@ def calculate(*args):
         result.set(statistics.find_min(filename.get(), key))
 
 def exit_program(*args):
-    root.quit()    
+    root.quit()
     
 root = Tk()
 root.title("Statistics Tool")
@@ -69,7 +66,7 @@ file_entry.grid(column=2, row=1, sticky=(W, E))
 ttk.Button(mainframe, text="Open", command=open_file).grid(column=3, row=1, sticky=W)
 
 # Choose Column
-column = ttk.Combobox(mainframe, textvariable=header).grid(column=2, row=2, sticky=(W, E))
+column = ttk.Combobox(mainframe, state="disabled").grid(column=2, row=2, sticky=(W, E))
 
 # Choose operation
 calc_mean = ttk.Radiobutton(checkboxframe, text="Mean", variable=operation_choice, value="mean")
