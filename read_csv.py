@@ -14,8 +14,17 @@ def read_csv(filename):
     """
     content = []
 
-    with open(filename, encoding="utf-8-sig") as f:
+    with open(filename, encoding="utf-8") as f:
         header = f.readline().split(",")
+        
+        # sometimes there is a trailing \n in the list
+        # which needs to be removed
+        if header[-1][-1] == "\n":
+            header_tmp = header[-1]
+            header_tmp = header_tmp.rstrip("\n")
+            header.pop()
+            header.append(header_tmp)
+
         for line in f:
             temp = f.readline().split(",")
             temp_float = []
