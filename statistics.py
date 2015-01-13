@@ -44,10 +44,9 @@ def calc_mean(filename, key):
     """
     Calculates the Mean of the Fileinput of the given Key.
     """
-    #raise NotImplementedError
+
     sum_of_values = 0
     for item in items(filename):
-        #print(item)
         sum_of_values += item[key]
     return sum_of_values / count(filename)
 
@@ -56,7 +55,7 @@ def calc_stddev(filename, key):
     """
     Calculates the Standarddeviation of the Fileinput of the given Key.
     """
-    #raise NotImplementedError
+
     a = []
     for item in items(filename):
         a.append(item[key])
@@ -67,10 +66,9 @@ def calc_sum(filename, key):
     """
     Calculates the Sum of the Fileinput of the given Key.
     """
-    #raise NotImplementedError
+
     sum_of_values = 0
     for item in items(filename):
-        #print(item)
         sum_of_values += item[key]
     return sum_of_values
 
@@ -79,7 +77,7 @@ def calc_variance(filename, key):
     """
     Calculates the Variance of the Fileinput of the given Key.
     """
-    #raise NotImplementedError
+
     a = []
     for item in items(filename):
         a.append(item[key])
@@ -90,7 +88,7 @@ def find_max(filename, key):
     """
     Finds the Maximum of the Fileinput of the given Key.
     """
-    #raise NotImplementedError
+    
     a = []
     for item in items(filename):
         a.append(item[key])
@@ -101,7 +99,7 @@ def find_min(filename, key):
     """
     Finds the Minumum of the Fileinput of the given Key.
     """
-    #raise NotImplementedError
+    
     a = []
     for item in items(filename):
         a.append(item[key])
