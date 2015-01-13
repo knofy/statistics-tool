@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+"""
+A simple GUI for reading .csv-files and perform statistical operations
+on selected columns of the file
+"""
+
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
@@ -10,7 +15,23 @@ def open_file(*args):
     tmp_filename = filedialog.askopenfilename()
     filename.set(tmp_filename)
     tmp_header, tmp_content = read_csv.read_csv(tmp_filename)
-    column = ttk.Combobox(mainframe, textvariable=header, values=tmp_header).grid(column=2, row=2, sticky=(W, E))
+    tmp_header_new = checkheader(tmp_header)
+    header.set("")
+    column = ttk.Combobox(mainframe, textvariable=header, values=tmp_header_new).grid(column=2, row=2, sticky=(W, E))
+
+def checkheader(header_values):
+    for i, key in enumerate(header_values):
+        try:
+            statistics.calc_mean(filename.get(), key)
+            statistics.calc_stddev(filename.get(), key)
+            statistics.calc_sum(filename.get(), key)
+            statistics.calc_variance(filename.get(), key)
+            statistics.count(filename.get())
+            statistics.find_max(filename.get(), key)
+            statistics.find_min(filename.get(), key)
+        except:
+            header_values.pop(i)
+    return header_values
 
 def calculate(*args):
     key = header.get()
@@ -49,7 +70,6 @@ filename = StringVar()
 operation_choice = StringVar()
 result = StringVar()
 header = StringVar()
-#content = StringVar()
 
 # Labels
 ttk.Label(mainframe, text="Select File").grid(column=1, row=1, sticky=W)
@@ -65,7 +85,7 @@ file_entry = ttk.Entry(mainframe, textvariable=filename, state="disabled")
 file_entry.grid(column=2, row=1, sticky=(W, E))
 ttk.Button(mainframe, text="Open", command=open_file).grid(column=3, row=1, sticky=W)
 
-# Choose Column
+# Choose Column (just temporary, real combobox is initialized in open_file-function)
 column = ttk.Combobox(mainframe, state="disabled").grid(column=2, row=2, sticky=(W, E))
 
 # Choose operation
@@ -85,7 +105,7 @@ find_min = ttk.Radiobutton(checkboxframe, text="Find minimum", variable=operatio
 find_min.grid(column=2, row=3, sticky=W)
 
 # Calculation Button
-ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=4, sticky=(W, S))
+calc_button = ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=4, sticky=(W, S))
 
 # Exit Button
 ttk.Button(mainframe, text="Exit", command=exit_program).grid(column=3, row=5, sticky=(W, S))
