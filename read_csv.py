@@ -8,6 +8,7 @@ def read_csv(filename):
     """
     Reads data of a csv file, stores header in a list and content in a matrix
     """
+    
     content = []
 
     with open(filename, encoding="utf-8") as f:

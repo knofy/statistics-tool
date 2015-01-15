@@ -33,7 +33,10 @@ def items(filename):
 
 
 def count(filename):
-    """Return the number of items in the given file."""
+    """
+    Return the number of items in the given file.
+    """
+    
     num_items = 0
     for item in items(filename):
         num_items += 1

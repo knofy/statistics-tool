@@ -22,7 +22,7 @@ def open_file(*args):
     tmp_header_new = checkheader(tmp_header)
     header.set("")
     result.set("")
-    column = ttk.Combobox(mainframe, textvariable=header, values=tmp_header_new).grid(column=2, row=2, sticky=(W, E))
+    column = ttk.Combobox(mainframe, textvariable=header, values=tmp_header_new, state="readonly").grid(column=2, row=2, sticky=(W, E))
     # enable or disable options if header is empty
     if tmp_header_new:
         create_options(True)
