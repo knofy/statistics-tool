@@ -21,7 +21,7 @@ Step 1: Installation
 
 You need to have the python3 and tkinter-Module for python3 installed.
 
-For installion on Debian systems use:
+For installation on Debian systems use:
 sudo apt-get install python3 python3-tk
 
 =======================================================================
