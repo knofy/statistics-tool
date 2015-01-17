@@ -11,11 +11,11 @@ def read_csv(filename):
     
     content = []
 
-    with open(filename, encoding="utf-8") as f:
+    with open(filename, encoding="utf-8-sig") as f:
         header = f.readline().split(",")
         
         # sometimes there is a trailing \n in the list
-        # which needs to be removed
+        # which needs to be removed       
         if header[-1][-1] == "\n":
             header_tmp = header[-1]
             header_tmp = header_tmp.rstrip("\n")
