@@ -17,6 +17,7 @@ def items(filename):
     Calling this generator function again after the last line restarts at the
     top.
     """
+    key = ""
     with open(filename, encoding='utf-8-sig') as f:
         header = [e.strip() for e in f.readline().split(',')]
         for line in f:
