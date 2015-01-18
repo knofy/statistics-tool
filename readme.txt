@@ -37,9 +37,9 @@ Open the program-Folder in the console and start the program either by:
 Step 3: Usage
 
 1. Click on the button 'Open' to select a CSV-File you want to perform
-statistical operations on. The File must have one header-line and
-valid values otherwise statistical calculations are not possible
-by this program.
+statistical operations on (in the folder 'testfiles' are already a few
+files you can use). The File must have one header-line and valid values
+otherwise statistical calculations are not possible by this program.
 
 2. With 'Select Column' choose the selected column of the file you want
 to use. If a column is not in the list but exists in the file, this means
