@@ -34,7 +34,7 @@ def checkheader(header_values):
     Checks if headers can be calculated with all create_options
     if not, header is removed from list
     """
-    
+    header_new = []
     for i, key in enumerate(header_values):
         try:
             statistics.calc_mean(filename.get(), key)
@@ -44,9 +44,10 @@ def checkheader(header_values):
             statistics.count(filename.get())
             statistics.find_max(filename.get(), key)
             statistics.find_min(filename.get(), key)
+            header_new.append(key)
         except:
-            header_values.pop(i)
-    return header_values
+            pass
+    return header_new
 
 def calculate(*args):
     """
