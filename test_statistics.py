@@ -64,7 +64,7 @@ class TestCalcMean(unittest.TestCase):
 
     def test_corrupt(self):
         # file 1
-        self.assertRaises(TypeError, statistics.calc_mean, file1_corrupt, "Open")
+        self.assertRaises(TypeError, statistics.calc_mean, file1_corrupt, "Opden")
         self.assertRaises(TypeError, statistics.calc_mean, file1_corrupt, "High")
         self.assertRaises(TypeError, statistics.calc_mean, file1_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_mean, file1_corrupt, "Close")
@@ -75,11 +75,11 @@ class TestCalcMean(unittest.TestCase):
         self.assertRaises(TypeError, statistics.calc_mean, file2_corrupt, "High")
         self.assertRaises(TypeError, statistics.calc_mean, file2_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_mean, file2_corrupt, "Close")
-        self.assertRaises(TypeError, statistics.calc_mean, file2_corrupt, "Volume")
+        self.assertRaises(TypeError, statistics.calc_mean, file2_corrupt, "Vol")
         
         # file 3
         self.assertRaises(TypeError, statistics.calc_mean, file3_corrupt, "Open")
-        self.assertRaises(TypeError, statistics.calc_mean, file3_corrupt, "High")
+        self.assertRaises(TypeError, statistics.calc_mean, file3_corrupt, "123")
         self.assertRaises(TypeError, statistics.calc_mean, file3_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_mean, file3_corrupt, "Close")
         self.assertRaises(TypeError, statistics.calc_mean, file3_corrupt, "Volume")
@@ -87,7 +87,7 @@ class TestCalcMean(unittest.TestCase):
         # file 4
         self.assertRaises(TypeError, statistics.calc_mean, file4_corrupt, "Open")
         self.assertRaises(TypeError, statistics.calc_mean, file4_corrupt, "High")
-        self.assertRaises(TypeError, statistics.calc_mean, file4_corrupt, "Low")
+        self.assertRaises(TypeError, statistics.calc_mean, file4_corrupt, "Lower")
         self.assertRaises(TypeError, statistics.calc_mean, file4_corrupt, "Close")
         self.assertRaises(TypeError, statistics.calc_mean, file4_corrupt, "Volume")
 
@@ -127,7 +127,7 @@ class TestCalcStddev(unittest.TestCase):
 
     def test_corrupt(self):
         # file 1
-        self.assertRaises(TypeError, statistics.calc_stddev, file1_corrupt, "Open")
+        self.assertRaises(TypeError, statistics.calc_stddev, file1_corrupt, "Opden")
         self.assertRaises(TypeError, statistics.calc_stddev, file1_corrupt, "High")
         self.assertRaises(TypeError, statistics.calc_stddev, file1_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_stddev, file1_corrupt, "Close")
@@ -138,11 +138,11 @@ class TestCalcStddev(unittest.TestCase):
         self.assertRaises(TypeError, statistics.calc_stddev, file2_corrupt, "High")
         self.assertRaises(TypeError, statistics.calc_stddev, file2_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_stddev, file2_corrupt, "Close")
-        self.assertRaises(KeyError, statistics.calc_stddev, file2_corrupt, "Volume")
+        self.assertRaises(KeyError, statistics.calc_stddev, file2_corrupt, "Vol")
         
         # file 3
         self.assertRaises(KeyError, statistics.calc_stddev, file3_corrupt, "Open")
-        self.assertRaises(KeyError, statistics.calc_stddev, file3_corrupt, "High")
+        self.assertRaises(KeyError, statistics.calc_stddev, file3_corrupt, "123")
         self.assertRaises(KeyError, statistics.calc_stddev, file3_corrupt, "Low")
         self.assertRaises(KeyError, statistics.calc_stddev, file3_corrupt, "Close")
         self.assertRaises(KeyError, statistics.calc_stddev, file3_corrupt, "Volume")
@@ -150,7 +150,7 @@ class TestCalcStddev(unittest.TestCase):
         # file 4
         self.assertRaises(TypeError, statistics.calc_stddev, file4_corrupt, "Open")
         self.assertRaises(TypeError, statistics.calc_stddev, file4_corrupt, "High")
-        self.assertRaises(TypeError, statistics.calc_stddev, file4_corrupt, "Low")
+        self.assertRaises(TypeError, statistics.calc_stddev, file4_corrupt, "Lower")
         self.assertRaises(TypeError, statistics.calc_stddev, file4_corrupt, "Close")
         self.assertRaises(KeyError, statistics.calc_stddev, file4_corrupt, "Volume")
 
@@ -190,7 +190,7 @@ class TestCalcSum(unittest.TestCase):
 
     def test_corrupt(self):
         # file 1
-        self.assertRaises(TypeError, statistics.calc_sum, file1_corrupt, "Open")
+        self.assertRaises(TypeError, statistics.calc_sum, file1_corrupt, "Opden")
         self.assertRaises(TypeError, statistics.calc_sum, file1_corrupt, "High")
         self.assertRaises(TypeError, statistics.calc_sum, file1_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_sum, file1_corrupt, "Close")
@@ -201,11 +201,11 @@ class TestCalcSum(unittest.TestCase):
         self.assertRaises(TypeError, statistics.calc_sum, file2_corrupt, "High")
         self.assertRaises(TypeError, statistics.calc_sum, file2_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_sum, file2_corrupt, "Close")
-        self.assertRaises(TypeError, statistics.calc_sum, file2_corrupt, "Volume")
+        self.assertRaises(TypeError, statistics.calc_sum, file2_corrupt, "Vol")
         
-        # file 3e
+        # file 3
         self.assertRaises(TypeError, statistics.calc_sum, file3_corrupt, "Open")
-        self.assertRaises(TypeError, statistics.calc_sum, file3_corrupt, "High")
+        self.assertRaises(TypeError, statistics.calc_sum, file3_corrupt, "123")
         self.assertRaises(TypeError, statistics.calc_sum, file3_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_sum, file3_corrupt, "Close")
         self.assertRaises(TypeError, statistics.calc_sum, file3_corrupt, "Volume")
@@ -213,7 +213,7 @@ class TestCalcSum(unittest.TestCase):
         # file 4
         self.assertRaises(TypeError, statistics.calc_sum, file4_corrupt, "Open")
         self.assertRaises(TypeError, statistics.calc_sum, file4_corrupt, "High")
-        self.assertRaises(TypeError, statistics.calc_sum, file4_corrupt, "Low")
+        self.assertRaises(TypeError, statistics.calc_sum, file4_corrupt, "Lower")
         self.assertRaises(TypeError, statistics.calc_sum, file4_corrupt, "Close")
         self.assertRaises(TypeError, statistics.calc_sum, file4_corrupt, "Volume")
         
@@ -253,7 +253,7 @@ class TestCalcVariance(unittest.TestCase):
 
     def test_corrupt(self):
         # file 1
-        self.assertRaises(TypeError, statistics.calc_variance, file1_corrupt, "Open")
+        self.assertRaises(TypeError, statistics.calc_variance, file1_corrupt, "Opden")
         self.assertRaises(TypeError, statistics.calc_variance, file1_corrupt, "High")
         self.assertRaises(TypeError, statistics.calc_variance, file1_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_variance, file1_corrupt, "Close")
@@ -264,11 +264,11 @@ class TestCalcVariance(unittest.TestCase):
         self.assertRaises(TypeError, statistics.calc_variance, file2_corrupt, "High")
         self.assertRaises(TypeError, statistics.calc_variance, file2_corrupt, "Low")
         self.assertRaises(TypeError, statistics.calc_variance, file2_corrupt, "Close")
-        self.assertRaises(KeyError, statistics.calc_variance, file2_corrupt, "Volume")
+        self.assertRaises(KeyError, statistics.calc_variance, file2_corrupt, "Vol")
         
-        # file 3e
+        # file 3
         self.assertRaises(KeyError, statistics.calc_variance, file3_corrupt, "Open")
-        self.assertRaises(KeyError, statistics.calc_variance, file3_corrupt, "High")
+        self.assertRaises(KeyError, statistics.calc_variance, file3_corrupt, "123")
         self.assertRaises(KeyError, statistics.calc_variance, file3_corrupt, "Low")
         self.assertRaises(KeyError, statistics.calc_variance, file3_corrupt, "Close")
         self.assertRaises(KeyError, statistics.calc_variance, file3_corrupt, "Volume")
@@ -276,7 +276,7 @@ class TestCalcVariance(unittest.TestCase):
         # file 4
         self.assertRaises(TypeError, statistics.calc_variance, file4_corrupt, "Open")
         self.assertRaises(TypeError, statistics.calc_variance, file4_corrupt, "High")
-        self.assertRaises(TypeError, statistics.calc_variance, file4_corrupt, "Low")
+        self.assertRaises(TypeError, statistics.calc_variance, file4_corrupt, "Lower")
         self.assertRaises(TypeError, statistics.calc_variance, file4_corrupt, "Close")
         self.assertRaises(KeyError, statistics.calc_variance, file4_corrupt, "Volume")
 
@@ -316,7 +316,7 @@ class TestFindMax(unittest.TestCase):
 
     def test_corrupt(self):
         # file 1
-        self.assertRaises(TypeError, statistics.find_max, file1_corrupt, "Open")
+        self.assertRaises(TypeError, statistics.find_max, file1_corrupt, "Opden")
         self.assertRaises(TypeError, statistics.find_max, file1_corrupt, "High")
         self.assertRaises(TypeError, statistics.find_max, file1_corrupt, "Low")
         self.assertRaises(TypeError, statistics.find_max, file1_corrupt, "Close")
@@ -327,11 +327,11 @@ class TestFindMax(unittest.TestCase):
         self.assertRaises(TypeError, statistics.find_max, file2_corrupt, "High")
         self.assertRaises(TypeError, statistics.find_max, file2_corrupt, "Low")
         self.assertRaises(TypeError, statistics.find_max, file2_corrupt, "Close")
-        self.assertRaises(KeyError, statistics.find_max, file2_corrupt, "Volume")
+        self.assertRaises(KeyError, statistics.find_max, file2_corrupt, "Vol")
         
-        # file 3e
+        # file 3
         self.assertRaises(KeyError, statistics.find_max, file3_corrupt, "Open")
-        self.assertRaises(KeyError, statistics.find_max, file3_corrupt, "High")
+        self.assertRaises(KeyError, statistics.find_max, file3_corrupt, "123")
         self.assertRaises(KeyError, statistics.find_max, file3_corrupt, "Low")
         self.assertRaises(KeyError, statistics.find_max, file3_corrupt, "Close")
         self.assertRaises(KeyError, statistics.find_max, file3_corrupt, "Volume")
@@ -339,7 +339,7 @@ class TestFindMax(unittest.TestCase):
         # file 4
         self.assertRaises(TypeError, statistics.find_max, file4_corrupt, "Open")
         self.assertRaises(TypeError, statistics.find_max, file4_corrupt, "High")
-        self.assertRaises(TypeError, statistics.find_max, file4_corrupt, "Low")
+        self.assertRaises(TypeError, statistics.find_max, file4_corrupt, "Lower")
         self.assertRaises(TypeError, statistics.find_max, file4_corrupt, "Close")
         self.assertRaises(KeyError, statistics.find_max, file4_corrupt, "Volume")
 
@@ -379,7 +379,7 @@ class TestFindMin(unittest.TestCase):
 
     def test_corrupt(self):
         # file 1
-        self.assertRaises(TypeError, statistics.find_min, file1_corrupt, "Open")
+        self.assertRaises(TypeError, statistics.find_min, file1_corrupt, "Opden")
         self.assertRaises(TypeError, statistics.find_min, file1_corrupt, "High")
         self.assertRaises(TypeError, statistics.find_min, file1_corrupt, "Low")
         self.assertRaises(TypeError, statistics.find_min, file1_corrupt, "Close")
@@ -390,11 +390,11 @@ class TestFindMin(unittest.TestCase):
         self.assertRaises(TypeError, statistics.find_min, file2_corrupt, "High")
         self.assertRaises(TypeError, statistics.find_min, file2_corrupt, "Low")
         self.assertRaises(TypeError, statistics.find_min, file2_corrupt, "Close")
-        self.assertRaises(KeyError, statistics.find_min, file2_corrupt, "Volume")
+        self.assertRaises(KeyError, statistics.find_min, file2_corrupt, "Vol")
         
-        # file 3e
+        # file 3
         self.assertRaises(KeyError, statistics.find_min, file3_corrupt, "Open")
-        self.assertRaises(KeyError, statistics.find_min, file3_corrupt, "High")
+        self.assertRaises(KeyError, statistics.find_min, file3_corrupt, "123")
         self.assertRaises(KeyError, statistics.find_min, file3_corrupt, "Low")
         self.assertRaises(KeyError, statistics.find_min, file3_corrupt, "Close")
         self.assertRaises(KeyError, statistics.find_min, file3_corrupt, "Volume")
@@ -402,7 +402,7 @@ class TestFindMin(unittest.TestCase):
         # file 4
         self.assertRaises(TypeError, statistics.find_min, file4_corrupt, "Open")
         self.assertRaises(TypeError, statistics.find_min, file4_corrupt, "High")
-        self.assertRaises(TypeError, statistics.find_min, file4_corrupt, "Low")
+        self.assertRaises(TypeError, statistics.find_min, file4_corrupt, "Lower")
         self.assertRaises(TypeError, statistics.find_min, file4_corrupt, "Close")
         self.assertRaises(KeyError, statistics.find_min, file4_corrupt, "Volume")
 
