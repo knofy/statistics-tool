@@ -38,7 +38,7 @@ Step 3: Usage
 
 1. Click on the button 'Open' to select a CSV-File you want to perform
 statistical operations on (in the folder 'testfiles' are already a few
-files you can use). The File must have one header-line and valid values
+files you can use). The file must have one header-line and valid values
 otherwise statistical calculations are not possible by this program.
 
 2. With 'Select Column' choose the selected column of the file you want
